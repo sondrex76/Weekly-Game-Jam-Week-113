@@ -326,6 +326,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1afbdacb7471794ba1d44327aa1579a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraSpeed: 5
+  cameraAngleX: 0
+  cameraAngleY: 0
+  horizontalAngularSpeed: 1.5
+  verticalAngularSpeed: 1.5
+  minimumVerticalTilt: -40
+  maximumVerticalTilt: 40
+  reverseVertical: 0
 --- !u!65 &963194231
 BoxCollider:
   m_ObjectHideFlags: 0
