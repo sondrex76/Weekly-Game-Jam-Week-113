@@ -29,18 +29,19 @@ public class cameraMovement : MonoBehaviour
 
     // Updates movement, will likely be jerky and unrealistic, should probably use...acceleration or something, should google it
     void updateMovement() {
-        // Use Time.deltaTime
-
-        // Interesting, no value for acceleration, I will have to keep track of that myself, then, if this were to be used by more then the player it should have been its own script
-
         // Checks if the character is running
         isRunning = Input.GetKey(KeyCode.LeftControl);
 
+        // BUG: when moving backwards it jumps
+        // Quaternion.Euler(0, cameraAngleX, 0) // use this
+
+        // Ignores y direction for movement
+        cameraElement.transform.rotation = Quaternion.Euler(0, cameraAngleX, 0);
+
+
         // figures out which speed should be used once rather than 
         float currentSpeed = isRunning ? runningAcceleration : walkingAcceleration;
-
-        // BUG: when ortating mouse movement is induced, unknown reason
-
+        
         // Gets inputs and updates speed
         if (Input.GetKey(KeyCode.W))            // Forwards
         {
@@ -76,6 +77,9 @@ public class cameraMovement : MonoBehaviour
 
         tempZeroValue.y = yValue;               // Re-integrates the y Valye
         playerModel.velocity = tempZeroValue;   // sets velocity to the updated velocity
+
+        // resets camera element
+        cameraElement.transform.rotation = Quaternion.Euler(cameraAngleY, cameraAngleX, 0);
     }
 
     // Updates rotation(in other words reads mouse input and rotates around based on it)
