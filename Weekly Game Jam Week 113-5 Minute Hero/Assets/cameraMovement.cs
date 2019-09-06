@@ -8,7 +8,7 @@ public class cameraMovement : MonoBehaviour
     Camera cameraElement;                                                       // The camera
     // Public values related to camera movement
     public float jumpingSpeed = 20.0f;                                          // jumping speed
-    public float walkingAcceleration = 1.0f, runningAcceleration = 3.0f;       // Acceleration of movement
+    public float walkingAcceleration = 100.0f, runningAcceleration = 300.0f;    // Acceleration of movement
     public float decelerationSpeed = 4.0f;                                      // speed of decreasement of velocity when not clicking on any buttons(horizontally, gravity takes care of this otherwise
     public float cameraAngleX = 0, cameraAngleY = 0;                            // Starting orientation of camera
     public float horizontalAngularSpeed = 1.5f, verticalAngularSpeed = 1.5f;    // vertical and horizontal rotaiton speeds
@@ -44,11 +44,11 @@ public class cameraMovement : MonoBehaviour
         // Gets inputs and updates speed
         if (Input.GetKey(KeyCode.W))            // Forwards
         {
-            playerModel.velocity -= currentSpeed * transform.forward * Time.deltaTime;
+            playerModel.velocity += currentSpeed * transform.forward * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.S))            // Backwards
         {
-            playerModel.velocity += currentSpeed * transform.forward * Time.deltaTime;
+            playerModel.velocity -= currentSpeed * transform.forward * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.A))            // Left
         {
@@ -62,6 +62,7 @@ public class cameraMovement : MonoBehaviour
         {
 
         }
+        // wasd is currently NOT being detected, I have forgotten why that is, google it is
 
         // Sets y value into temporary value
         float yValue = playerModel.velocity.y;          // Gets y
@@ -94,6 +95,7 @@ public class cameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        updateViewDireaction();
+        updateMovement();       // Updates movement
+        updateViewDireaction(); // Updates rotaiton of camera
     }
 }

@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpingSpeed: 20
-  walkingAcceleration: 1
+  walkingAcceleration: 500
   runningAcceleration: 3
   decelerationSpeed: 4
   cameraAngleX: 0
