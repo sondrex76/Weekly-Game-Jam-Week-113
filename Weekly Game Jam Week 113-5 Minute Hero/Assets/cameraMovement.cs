@@ -8,8 +8,7 @@ public class cameraMovement : MonoBehaviour
     Camera cameraElement;                                                       // The camera
     // Public values related to camera movement
     public float jumpingSpeed = 20.0f;                                          // jumping speed
-    public float walkingAcceleration = 100.0f, runningAcceleration = 300.0f;    // Acceleration of movement
-    public float decelerationSpeed = 4.0f;                                      // speed of decreasement of velocity when not clicking on any buttons(horizontally, gravity takes care of this otherwise
+    public float walkingAcceleration = 30.0f, runningAcceleration = 45.0f;      // Acceleration of movement
     public float cameraAngleX = 0, cameraAngleY = 0;                            // Starting orientation of camera
     public float horizontalAngularSpeed = 1.5f, verticalAngularSpeed = 1.5f;    // vertical and horizontal rotaiton speeds
     public float minimumVerticalTilt = -40,  maximumVerticalTilt = 40;          // Angular tilt limits
@@ -27,63 +26,10 @@ public class cameraMovement : MonoBehaviour
         cameraElement = GetComponent<Camera>();
     }
 
-    // Updates movement, will likely be jerky and unrealistic, should probably use...acceleration or something, should google it
-    void updateMovement() {
-        // Checks if the character is running
-        isRunning = Input.GetKey(KeyCode.LeftControl);
-
-        // BUG: when moving backwards it jumps
-        // Quaternion.Euler(0, cameraAngleX, 0) // use this
-
-        // Ignores y direction for movement
-        cameraElement.transform.rotation = Quaternion.Euler(0, cameraAngleX, 0);
-
-
-        // figures out which speed should be used once rather than 
-        float currentSpeed = isRunning ? runningAcceleration : walkingAcceleration;
-        
-        // Gets inputs and updates speed
-        if (Input.GetKey(KeyCode.W))            // Forwards
-        {
-            playerModel.velocity += currentSpeed * transform.forward * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.S))            // Backwards
-        {
-            playerModel.velocity -= currentSpeed * transform.forward * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.A))            // Left
-        {
-            playerModel.velocity -= currentSpeed * transform.right * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.D))            // Right
-        {
-            playerModel.velocity += currentSpeed * transform.right * Time.deltaTime;
-        }
-        if (Input.GetKey(KeyCode.Space))        // Jump
-        {
-
-        }
-        // wasd is currently NOT being detected, I have forgotten why that is, google it is
-
-        // Sets y value into temporary value
-        float yValue = playerModel.velocity.y;          // Gets y
-        Vector3 tempZeroValue = playerModel.velocity;   // Gets full velocity value
-        tempZeroValue.y = 0;                            // sets y to 0 in temp value
-        
-        // Checks if maximum velocity have been reached and sets acceleration to 0 if it is larger then 0 already
-        if (tempZeroValue.magnitude > (isRunning ? maximumRunningVelocity : maximumWalkingVelocity)) {
-            tempZeroValue = tempZeroValue.normalized * (isRunning ? maximumRunningVelocity : maximumWalkingVelocity);   // Sets speed to max if it is above maximum
-        }
-
-        tempZeroValue.y = yValue;               // Re-integrates the y Valye
-        playerModel.velocity = tempZeroValue;   // sets velocity to the updated velocity
-
-        // resets camera element
-        cameraElement.transform.rotation = Quaternion.Euler(cameraAngleY, cameraAngleX, 0);
-    }
-
-    // Updates rotation(in other words reads mouse input and rotates around based on it)
-    void updateViewDireaction() {
+    // Update is called once per frame
+    void Update()
+    {
+        // Gets x and y angle of direction and updates the relevant values
         cameraAngleX += Input.GetAxis("Mouse X");   // Adds horizontal mouse movement
         float newAngle = cameraAngleY + (reverseVertical ? Input.GetAxis("Mouse Y") : -Input.GetAxis("Mouse Y"));
 
@@ -93,13 +39,56 @@ public class cameraMovement : MonoBehaviour
             cameraAngleY = minimumVerticalTilt;
         else cameraAngleY = newAngle;
 
-        cameraElement.transform.rotation = Quaternion.Euler(cameraAngleY, cameraAngleX, 0);
-    }
+        // -- MOVEMENT --
 
-    // Update is called once per frame
-    void Update()
-    {
-        updateMovement();       // Updates movement
-        updateViewDireaction(); // Updates rotaiton of camera
+        // Checks if the character is running
+        isRunning = Input.GetKey(KeyCode.LeftShift);
+        
+        // Ignores y direction for movement
+        cameraElement.transform.rotation = Quaternion.Euler(0, cameraAngleX, 0);
+
+
+        // figures out which speed should be used once rather than 
+        float currentSpeed = isRunning ? runningAcceleration : walkingAcceleration;
+
+        // Gets inputs and updates speed
+        if (Input.GetKey(KeyCode.W))                                    // Forwards
+        {
+            playerModel.velocity += currentSpeed * transform.forward * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.S))                                    // Backwards
+        {
+            playerModel.velocity -= currentSpeed * transform.forward * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.A))                                    // Left
+        {
+            playerModel.velocity -= currentSpeed * transform.right * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.D))                                    // Right
+        {
+            playerModel.velocity += currentSpeed * transform.right * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.Space) && playerModel.velocity.y == 0) // Jump
+        {
+            playerModel.velocity += jumpingSpeed * transform.up;
+        }
+        // wasd is currently NOT being detected, I have forgotten why that is, google it is
+
+        // Sets y value into temporary value
+        float yValue = playerModel.velocity.y;          // Gets y
+        Vector3 tempZeroValue = playerModel.velocity;   // Gets full velocity value
+        tempZeroValue.y = 0;                            // sets y to 0 in temp value
+
+        // Checks if maximum velocity have been reached and sets acceleration to 0 if it is larger then 0 already
+        if (tempZeroValue.magnitude > (isRunning ? maximumRunningVelocity : maximumWalkingVelocity))
+        {
+            tempZeroValue = tempZeroValue.normalized * (isRunning ? maximumRunningVelocity : maximumWalkingVelocity);   // Sets speed to max if it is above maximum
+        }
+
+        tempZeroValue.y = yValue;               // Re-integrates the y Valye
+        playerModel.velocity = tempZeroValue;   // sets velocity to the updated velocity
+
+        // Updates camera angle
+        cameraElement.transform.rotation = Quaternion.Euler(cameraAngleY, cameraAngleX, 0);
     }
 }

@@ -307,8 +307,8 @@ Rigidbody:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Drag: 3
+  m_AngularDrag: 0.5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -326,10 +326,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1afbdacb7471794ba1d44327aa1579a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpingSpeed: 20
-  walkingAcceleration: 500
-  runningAcceleration: 3
-  decelerationSpeed: 4
+  jumpingSpeed: 5
+  walkingAcceleration: 30
+  runningAcceleration: 45
   cameraAngleX: 0
   cameraAngleY: 0
   horizontalAngularSpeed: 1.5
