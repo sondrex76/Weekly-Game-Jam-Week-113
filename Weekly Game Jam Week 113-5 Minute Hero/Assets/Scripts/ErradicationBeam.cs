@@ -9,14 +9,10 @@ public class ErradicationBeam : MonoBehaviour
     bool targetFound = false;       // bool to see if the target have been found
     bool playerWithinRange = false; // bool indicating if the player is within range
     float damage = 80;              // The damage taken from a direct hit
-
     
-
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(transform.position);
-
         // Must always face in the direction of the player on the horizontal plane
         // Must shoot a ray towards the player when they are in range, if they are the chase is on
         // If the player is found, run the soundclip for chargeup
@@ -29,10 +25,11 @@ public class ErradicationBeam : MonoBehaviour
         playerPos.y = 0;                                    // Sets directional height to 0
 
         Vector3 direction = (playerPos - transform.position);
-
+        
         transform.LookAt(playerPos);                        // Changes the direction the ranged opponent looks at to that of the player
-        transform.position = direction * distanceLight;
 
-        Debug.Log(transform.position);
+
+
+        transform.position = transform.parent.position + transform.forward * distanceLight;
     }
 }

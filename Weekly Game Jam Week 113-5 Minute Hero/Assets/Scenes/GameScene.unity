@@ -2724,8 +2724,10 @@ MonoBehaviour:
   spotLight: {fileID: 1090661666}
   shootingNoise: {fileID: 963194231}
   minimumLightTime: 0.1
-  damage: 10
-  range: 12
+  damage: 9
+  range: 15
+  maxPower: 7
+  timeMax: 5
 --- !u!114 &963194233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2741,7 +2743,7 @@ MonoBehaviour:
   healthFill: {fileID: 1643207541909224508}
   currentHealth: 100
   maxHealth: 100
-  damageCollision: 8
+  damageCollision: 12
 --- !u!65 &963194234
 BoxCollider:
   m_ObjectHideFlags: 0

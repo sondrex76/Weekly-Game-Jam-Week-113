@@ -12,9 +12,9 @@ public class Gun : MonoBehaviour
 
     public float minimumLightTime = 0.1f;   // Minimum time the flash lasts
     public float damage = 10f;              // Damage per shot
-    public float range = 150f;              // Range for weapon
-    public float maxPower = 3.0f;           // Maximum power multiplier
-    public float timeMax = 3.0f;            // Time it takes to reach max potency
+    public float range = 15;              // Range for weapon
+    public float maxPower = 7.0f;           // Maximum power multiplier
+    public float timeMax = 5.0f;            // Time it takes to reach max potency
 
     float timeRun = 0;
     float multTime = 0;

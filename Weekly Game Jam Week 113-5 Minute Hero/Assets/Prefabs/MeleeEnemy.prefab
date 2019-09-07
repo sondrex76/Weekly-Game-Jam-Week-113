@@ -1319,7 +1319,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 20
+  m_Radius: 22
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &7354361891197000295
 MonoBehaviour:
@@ -1334,6 +1334,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  shouldFollowPlayer: 0
 --- !u!1 &3554071049788270718
 GameObject:
   m_ObjectHideFlags: 0

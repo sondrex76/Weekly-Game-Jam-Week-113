@@ -10,9 +10,9 @@ public class playerHealth : MonoBehaviour
     public Slider healthFill;
 
     // Public variables
-    public float currentHealth;             // Current health
-    public float maxHealth;                 // Max health
-    public float damageCollision;           // Damage taken when colliding with an enemy
+    public float currentHealth = 100;       // Current health
+    public float maxHealth = 100;           // Max health
+    public float damageCollision = 12.0f;   // Damage taken when colliding with an enemy
 
     // Should trigger when something stays within the collider
     private void OnTriggerStay(Collider other)
