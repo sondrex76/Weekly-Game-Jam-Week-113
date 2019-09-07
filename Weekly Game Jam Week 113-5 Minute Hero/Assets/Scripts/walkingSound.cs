@@ -14,14 +14,12 @@ public class walkingSound : MonoBehaviour
         if (previousPosition != transform.position) // if teh character have moved
         {
             audio.mute = false;
-            Debug.Log(transform.position);    // DEBUG
 
             previousPosition = transform.position;  // updates position
         }
         else
         {
             audio.mute = true;
-            Debug.Log("stopped");
         }
     }
 }

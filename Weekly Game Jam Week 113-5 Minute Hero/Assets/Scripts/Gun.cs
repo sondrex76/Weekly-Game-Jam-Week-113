@@ -13,8 +13,11 @@ public class Gun : MonoBehaviour
     public float minimumLightTime = 0.1f;   // Minimum time the flash lasts
     public float damage = 10f;              // Damage per shot
     public float range = 150f;              // Range for weapon
+    public float maxPower = 3.0f;           // Maximum power multiplier
+    public float timeMax = 3.0f;            // Time it takes to reach max potency
 
     float timeRun = 0;
+    float multTime = 0;
     // Update is called once per frame
     void Update()
     {
@@ -22,9 +25,11 @@ public class Gun : MonoBehaviour
         {
             innerLight.enabled = spotLight.enabled = outerLight.enabled = true;
             Shoot();
+            multTime = 0;
         }
         else {                              // Disable light flash
-            timeRun += Time.deltaTime;
+            timeRun += Time.deltaTime;      // Updates value with minimal lighting time for flash
+            multTime += Time.deltaTime;     // Updates timer for how long since last shot
             if (timeRun >= minimumLightTime)
             {
                 innerLight.enabled = spotLight.enabled = outerLight.enabled = false;
@@ -45,7 +50,9 @@ public class Gun : MonoBehaviour
             {
                 spotLight.transform.position = cameraObject.transform.position;
                 spotLight.transform.forward = cameraObject.transform.forward;
-                enemy.ChangeHealth(-damage);
+                
+                // formula allows gun to deal more damage if it have not been used in a little while
+                enemy.ChangeHealth(-damage * ((multTime > timeMax) ? maxPower : 1 + (maxPower - 1) * multTime / timeMax));
             }
         }
     }
