@@ -7,6 +7,7 @@ public class Gun : MonoBehaviour
     public Camera cameraObject;
     public Light innerLight;
     public Light outerLight;
+    public Light spotLight;
 
     public float minimumLightTime = 0.1f;   // Minimum time the flash lasts
     public float damage = 10f;              // Damage per shot
@@ -18,14 +19,14 @@ public class Gun : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))   // Shoot and enable light flash
         {
-            innerLight.enabled = outerLight.enabled = true;
+            innerLight.enabled = spotLight.enabled = outerLight.enabled = true;
             Shoot();
         }
         else {                              // Disable light flash
             timeRun += Time.deltaTime;
             if (timeRun >= minimumLightTime)
             {
-                innerLight.enabled = outerLight.enabled = false;
+                innerLight.enabled = spotLight.enabled = outerLight.enabled = false;
                 timeRun = 0;
             }
         }
@@ -40,6 +41,8 @@ public class Gun : MonoBehaviour
             HealthValue enemy = hit.transform.GetComponent<HealthValue>();
             if (enemy != null)
             {
+                spotLight.transform.position = cameraObject.transform.position;
+                spotLight.transform.forward = cameraObject.transform.forward;
                 enemy.ChangeHealth(-damage);
             }
         }
