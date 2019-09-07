@@ -156,6 +156,22 @@ MonoBehaviour:
   currentHealth: 150
   maxHealth: 150
   healthBarYOffset: 2.5
+--- !u!54 &38457667
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38457664}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!4 &537941412 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 15661b6ea9979e94fa148030158a8d45,
@@ -955,7 +971,6 @@ GameObject:
   - component: {fileID: 1647721786}
   - component: {fileID: 1647721785}
   - component: {fileID: 1647721784}
-  - component: {fileID: 1647721788}
   m_Layer: 8
   m_Name: GroundBasic
   m_TagString: Untagged
@@ -1037,19 +1052,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1647721788
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1647721783}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 10, y: 0.1, z: 10}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!224 &1685436837 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 595056879262461982, guid: 6128b7be6a6d0dd45b2b47b7b93a5599,
@@ -2300,6 +2302,7 @@ GameObject:
   - component: {fileID: 5006512736510287627}
   - component: {fileID: 750919835}
   - component: {fileID: 8296172667484826905}
+  - component: {fileID: 8296172667484826906}
   m_Layer: 0
   m_Name: BlackAndRedFloatingRobot
   m_TagString: Enemy
@@ -2324,3 +2327,19 @@ MonoBehaviour:
   currentHealth: 300
   maxHealth: 300
   healthBarYOffset: 1.5
+--- !u!54 &8296172667484826906
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8296172667484826904}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
