@@ -18,12 +18,19 @@ public class Gun : MonoBehaviour
 
     float timeRun = 0;
     float multTime = 0;
-    // Update is called once per frame
+
+    // Runs at start
+    private void Start()
+    {
+        allowLights(false);
+    }
+
+    // Runs every frame
     void Update()
     {
         if (Input.GetButtonDown("Fire1"))   // Shoot and enable light flash
         {
-            innerLight.enabled = spotLight.enabled = outerLight.enabled = true;
+            allowLights(true);
             Shoot();
             multTime = 0;
         }
@@ -32,10 +39,16 @@ public class Gun : MonoBehaviour
             multTime += Time.deltaTime;     // Updates timer for how long since last shot
             if (timeRun >= minimumLightTime)
             {
-                innerLight.enabled = spotLight.enabled = outerLight.enabled = false;
+                allowLights(false);
                 timeRun = 0;
             }
         }
+    }
+
+    // Activates/deactivates lights
+    void allowLights(bool set)
+    {
+        innerLight.enabled = spotLight.enabled = outerLight.enabled = set;
     }
 
     // Shoots with gun
