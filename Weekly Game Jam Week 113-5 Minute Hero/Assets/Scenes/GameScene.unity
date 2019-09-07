@@ -120,6 +120,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &38457664 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 15661b6ea9979e94fa148030158a8d45,
+    type: 3}
+  m_PrefabInstance: {fileID: 747423473}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &38457665
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38457664}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!4 &537941412 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 15661b6ea9979e94fa148030158a8d45,
@@ -371,6 +390,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15661b6ea9979e94fa148030158a8d45, type: 3}
+--- !u!1 &750919834 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 275f06de8e7b9dc49ac99be94c33efe4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1723053073}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &750919835
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750919834}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.04
+  m_Height: 1.1
+  m_Direction: 0
+  m_Center: {x: 0, y: -0.07, z: 0}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
