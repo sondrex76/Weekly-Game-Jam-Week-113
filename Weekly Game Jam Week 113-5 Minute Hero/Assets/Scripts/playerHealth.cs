@@ -20,7 +20,6 @@ public class playerHealth : MonoBehaviour
         if (other.transform.tag == "Enemy") // checks if other is enemy
         {
             ChangeHealth(-damageCollision * Time.deltaTime);
-            Debug.Log("Triggered TEST");
         }
     }
 

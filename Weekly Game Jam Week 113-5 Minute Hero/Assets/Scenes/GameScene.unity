@@ -109,8 +109,8 @@ NavMeshSettings:
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
-    ledgeDropHeight: 0
-    maxJumpAcrossDistance: 0
+    ledgeDropHeight: 1
+    maxJumpAcrossDistance: 0.4
     minRegionArea: 2
     manualCellSize: 0
     cellSize: 0.16666667
@@ -119,7 +119,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: b72fd2183b3f4b9479011b334500f037, type: 2}
 --- !u!1 &64107267
 GameObject:
   m_ObjectHideFlags: 0
@@ -136,8 +136,8 @@ GameObject:
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &64107268
 Transform:
@@ -888,8 +888,8 @@ GameObject:
   m_Name: Cylinder (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &511496881
 Transform:
@@ -1788,8 +1788,8 @@ GameObject:
   m_Name: Cylinder (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &848495231
 Transform:
@@ -1882,7 +1882,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &930978376
 Transform:
@@ -2074,8 +2074,8 @@ GameObject:
   m_Name: Cylinder (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &960402456
 Transform:
@@ -2271,7 +2271,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpingSpeed: 5
   walkingAcceleration: 30
-  runningAcceleration: 45
+  runningAcceleration: 36
   cameraAngleX: 0
   cameraAngleY: 0
   horizontalAngularSpeed: 1.5
@@ -2279,7 +2279,7 @@ MonoBehaviour:
   minimumVerticalTilt: -40
   maximumVerticalTilt: 40
   maximumWalkingVelocity: 5
-  maximumRunningVelocity: 10
+  maximumRunningVelocity: 6
   reverseVertical: 0
 --- !u!114 &963194232
 MonoBehaviour:
@@ -2356,6 +2356,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GroundBasic (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882426189655840583, guid: 16051b0d8e0e67946825d6249fa7ab00,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5882426189655840587, guid: 16051b0d8e0e67946825d6249fa7ab00,
         type: 3}
@@ -2440,6 +2445,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GroundBasic (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882426189655840583, guid: 16051b0d8e0e67946825d6249fa7ab00,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882426189655840583, guid: 16051b0d8e0e67946825d6249fa7ab00,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5882426189655840587, guid: 16051b0d8e0e67946825d6249fa7ab00,
         type: 3}
@@ -2692,6 +2707,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GroundBasic (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882426189655840583, guid: 16051b0d8e0e67946825d6249fa7ab00,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882426189655840583, guid: 16051b0d8e0e67946825d6249fa7ab00,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5882426189655840587, guid: 16051b0d8e0e67946825d6249fa7ab00,
         type: 3}
@@ -3087,8 +3112,8 @@ GameObject:
   m_Name: Cylinder (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1288649069
 Transform:
@@ -3361,8 +3386,8 @@ GameObject:
   m_Name: Cylinder (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1447438460
 Transform:
@@ -3633,8 +3658,8 @@ GameObject:
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1495935366
 Transform:
@@ -4222,6 +4247,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: GroundBasic (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5882426189655840583, guid: 16051b0d8e0e67946825d6249fa7ab00,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5882426189655840583, guid: 16051b0d8e0e67946825d6249fa7ab00,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5882426189655840587, guid: 16051b0d8e0e67946825d6249fa7ab00,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4516,8 +4551,8 @@ GameObject:
   m_Name: Cylinder (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1894885384
 Transform:
@@ -4894,7 +4929,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &2021842741
 Transform:
