@@ -25,12 +25,15 @@ public class HealthValue : MonoBehaviour
         {
             Die();
         }
-        else // if they are still alive whne shot they follow the player even if the yare outside of their normal range
+        else // if they are still alive when shot they follow the player even if the yare outside of their normal range
         {
             Transform tempTransform = gameObject.transform.Find("PlayerFinder");
 
-            tempTransform.GetComponent<MeleeBehaviour>().shouldFollowPlayer = true;
-            tempTransform.GetComponent<MeleeBehaviour>().target = Camera.main.transform; 
+            if (tempTransform != null)  // Ensures only the melee enemies executes the following code
+            {
+                tempTransform.GetComponent<MeleeBehaviour>().shouldFollowPlayer = true;
+                tempTransform.GetComponent<MeleeBehaviour>().target = Camera.main.transform;
+            }
         }
     }
 

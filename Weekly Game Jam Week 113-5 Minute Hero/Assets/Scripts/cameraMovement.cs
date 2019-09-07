@@ -11,7 +11,7 @@ public class cameraMovement : MonoBehaviour
     public float walkingAcceleration = 30.0f, runningAcceleration = 45.0f;      // Acceleration of movement
     public float cameraAngleX = 0, cameraAngleY = 0;                            // Starting orientation of camera
     public float horizontalAngularSpeed = 1.5f, verticalAngularSpeed = 1.5f;    // vertical and horizontal rotaiton speeds
-    public float minimumVerticalTilt = -40,  maximumVerticalTilt = 40;          // Angular tilt limits
+    public float minimumVerticalTilt = -60,  maximumVerticalTilt = 90;          // Angular tilt limits
     public float maximumWalkingVelocity = 5.0f, maximumRunningVelocity = 10.0f; // Maximum velocity
     public bool reverseVertical = false;                                        // bool determining if vertical inout should be reversed
 
