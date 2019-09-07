@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class timerUpdate : MonoBehaviour
 {
+    public playerHealth player;
     public Text textOverlay;
     float remainingTime = 300;
 
@@ -19,6 +20,13 @@ public class timerUpdate : MonoBehaviour
         seconds = (int)remainingTime % 60;
         milliseconds = (int)((remainingTime - (int)remainingTime) * 100);
 
-        textOverlay.text = minutes + ":" + seconds + ":" + milliseconds;
+        if (remainingTime > 0)
+        {
+            textOverlay.text = minutes + ":" + seconds + ":" + milliseconds;
+        }
+        else {
+            textOverlay.text = "0:00:00";   // Sets Gui to 0:0:00
+            player.ChangeHealth(-100);      // Kills player
+        }
     }
 }

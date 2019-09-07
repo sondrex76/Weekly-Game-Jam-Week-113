@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class playerHealth : MonoBehaviour
 {
@@ -40,6 +41,6 @@ public class playerHealth : MonoBehaviour
     // Detah have been reached
     void Die()
     {
-        // implement a death sequence of some sort
+        SceneManager.LoadScene("YouDied");  // Changes scene to the death scene
     }
 }
