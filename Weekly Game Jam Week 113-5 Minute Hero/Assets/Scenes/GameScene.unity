@@ -982,7 +982,7 @@ GameObject:
   - component: {fileID: 612855926}
   - component: {fileID: 612855928}
   - component: {fileID: 612855927}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Walking sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1466,7 +1466,7 @@ GameObject:
   m_Component:
   - component: {fileID: 738625849}
   - component: {fileID: 738625850}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: InnerFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1557,7 +1557,7 @@ GameObject:
   m_Component:
   - component: {fileID: 753812627}
   - component: {fileID: 753812628}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: OuterFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2492,7 +2492,7 @@ GameObject:
   - component: {fileID: 963194234}
   - component: {fileID: 963194235}
   - component: {fileID: 963194231}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Main Camera & character
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -3138,7 +3138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1090661665}
   - component: {fileID: 1090661666}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SpotlightFlash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3244,7 +3244,7 @@ PrefabInstance:
     - target: {fileID: 5882426189655840587, guid: 16051b0d8e0e67946825d6249fa7ab00,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.68
+      value: 27.675
       objectReference: {fileID: 0}
     - target: {fileID: 5882426189655840587, guid: 16051b0d8e0e67946825d6249fa7ab00,
         type: 3}
@@ -5062,7 +5062,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1862949701}
   - component: {fileID: 1862949702}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Background music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6693,7 +6693,7 @@ GameObject:
   - component: {fileID: 7715919832031537569}
   - component: {fileID: 7715919832030767519}
   - component: {fileID: 7715919832029637471}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: muzzle_fire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6709,7 +6709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7715919832031537571}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: muni_rot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6726,7 +6726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7715919832031537587}
   - component: {fileID: 7715919832024565331}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6744,7 +6744,7 @@ GameObject:
   - component: {fileID: 7715919832031537589}
   - component: {fileID: 7715919832030767505}
   - component: {fileID: 7715919832029637457}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Cube_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6760,7 +6760,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7715919832031537591}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: bullet_shooter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6778,7 +6778,7 @@ GameObject:
   - component: {fileID: 7715919832031537593}
   - component: {fileID: 7715919832030767509}
   - component: {fileID: 7715919832029637461}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6796,7 +6796,7 @@ GameObject:
   - component: {fileID: 7715919832031537595}
   - component: {fileID: 7715919832030767511}
   - component: {fileID: 7715919832029637463}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Cube_005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6814,7 +6814,7 @@ GameObject:
   - component: {fileID: 7715919832031537599}
   - component: {fileID: 7715919832030767515}
   - component: {fileID: 7715919832029637467}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Gun_trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

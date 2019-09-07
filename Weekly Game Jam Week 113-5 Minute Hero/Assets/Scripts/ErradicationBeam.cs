@@ -45,6 +45,8 @@ public class ErradicationBeam : MonoBehaviour
             timeWaited += Time.deltaTime;
             if (timeWaited >= timeShooting) // If enough time have passed
             {
+                Debug.Log("#3");    // DEBUG
+
                 RaycastHit hit;
 
                 transform.LookAt(Camera.main.transform.position);   // Gets direction
@@ -52,8 +54,10 @@ public class ErradicationBeam : MonoBehaviour
                 // Actual checks
                 if (Physics.Raycast(transform.position, transform.forward, out hit))
                 {
+                    Debug.Log("#4");    // DEBUG
                     playerHealth enemy = hit.transform.GetComponent<playerHealth>();    // Checks if the hit target is the player
                     if (enemy != null)  // If it was indeed the player, they are in range and in direct line of sight to the ranged opponent
+                        Debug.Log("#5");    // DEBUG
                     {
                         enemy.ChangeHealth(-erradicationDamage);    // Updates health
                     }
@@ -67,7 +71,7 @@ public class ErradicationBeam : MonoBehaviour
     }
 
     // Detects if player have entered its range
-    private void OnTriggerStays(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (!targetFound) // checks if the target is already found
             if (other.tag == "MainCamera")
@@ -79,10 +83,10 @@ public class ErradicationBeam : MonoBehaviour
                 // Actual checks
                 if (Physics.Raycast(transform.position, transform.forward, out hit))
                 {
-                    playerHealth enemy = hit.transform.GetComponent<playerHealth>();    // Checks if the hit target is the player
-                    if (enemy != null)  // If it was indeed the player, they are in range and in direct line of sight to the ranged opponent
+                    if (hit.transform.tag == "MainCamera")  // If it was indeed the player, they are in range and in direct line of sight to the ranged opponent
                     {
-                        Debug.Log("Player identified!");
+                        shootingNoise.Play();
+                        Debug.Log("#2");    // DEBUG
                         targetFound = true;         // Updates targetFound
                     }
                 }

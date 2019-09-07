@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57d3b0b7832a49149b8732a7070ff3d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingNoise: {fileID: 0}
+  shootingNoise: {fileID: 7697904007963231802}
   outerLight: {fileID: 510758231668599390}
   innerLight: {fileID: 3473033519679187788}
   spotLight: {fileID: 1550006904629571490}
@@ -375,7 +375,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4556e535587ea774e9a1baeecbf0e172, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -472,7 +472,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 25
+  m_Radius: 30
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5465008767966708989
 GameObject:
