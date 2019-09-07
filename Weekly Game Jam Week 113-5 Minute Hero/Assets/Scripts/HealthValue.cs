@@ -14,11 +14,16 @@ public class HealthValue : MonoBehaviour
     public float maxHealth;                 // Max health
     public float healthBarYOffset = 0.0f;   // Health bar Y offset
 
-    public void ChangeHealth(int amount) {
+    public void ChangeHealth(float amount) {
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
         healthFill.value = currentHealth;
+
+        if (currentHealth <= 0f)
+        {
+            Die();
+        }
     }
 
     // updates the health bar's position
@@ -33,5 +38,10 @@ public class HealthValue : MonoBehaviour
     void Update()
     {
         PositionHealthBar();
+    }
+
+    void Die()
+    {
+        Destroy(gameObject);
     }
 }

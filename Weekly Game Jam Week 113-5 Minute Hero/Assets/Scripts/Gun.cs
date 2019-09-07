@@ -24,6 +24,12 @@ public class Gun : MonoBehaviour
         if (Physics.Raycast(cameraObject.transform.position, cameraObject.transform.forward, out hit, range))
         {
             Debug.Log(hit.transform.name);
+            HealthValue enemy = hit.transform.GetComponent<HealthValue>();
+            if (enemy != null)
+            {
+                Debug.Log("TEST");
+                enemy.ChangeHealth(-damage);
+            }
         }
     }
 }
