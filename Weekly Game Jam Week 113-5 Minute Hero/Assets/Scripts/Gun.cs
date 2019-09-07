@@ -8,6 +8,7 @@ public class Gun : MonoBehaviour
     public Light innerLight;
     public Light outerLight;
     public Light spotLight;
+    public AudioSource shootingNoise;
 
     public float minimumLightTime = 0.1f;   // Minimum time the flash lasts
     public float damage = 10f;              // Damage per shot
@@ -35,6 +36,7 @@ public class Gun : MonoBehaviour
     // Shoots with gun
     void Shoot()
     {
+        shootingNoise.Play();
         RaycastHit hit;
         if (Physics.Raycast(cameraObject.transform.position, cameraObject.transform.forward, out hit, range))
         {
