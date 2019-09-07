@@ -14,6 +14,7 @@ public class HealthValue : MonoBehaviour
     public float maxHealth;                 // Max health
     public float healthBarYOffset = 0.0f;   // Health bar Y offset
 
+    // Updates health
     public void ChangeHealth(float amount) {
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
