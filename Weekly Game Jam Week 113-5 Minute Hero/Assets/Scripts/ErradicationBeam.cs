@@ -6,11 +6,19 @@ public class ErradicationBeam : MonoBehaviour
 {
     public float distanceLight;
 
+    public Light outerLight, innerLight, spotLight;
+
     bool targetFound = false;       // bool to see if the target have been found
     bool playerWithinRange = false; // bool indicating if the player is within range
     float damage = 80;              // The damage taken from a direct hit
-    
+
     // Update is called once per frame
+
+    private void Start()
+    {
+        // deactivates all lights until they are supposed to be used
+        outerLight.enabled = innerLight.enabled = spotLight.enabled = false;
+    }
     void Update()
     {
         // Must always face in the direction of the player on the horizontal plane
