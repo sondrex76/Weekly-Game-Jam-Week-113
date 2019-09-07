@@ -18,10 +18,4 @@ public class RainbowFactory : MonoBehaviour
 
         cursedSound.Play(); // Starts playing
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

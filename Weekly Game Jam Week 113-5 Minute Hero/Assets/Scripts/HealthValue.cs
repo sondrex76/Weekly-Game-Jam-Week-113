@@ -25,6 +25,13 @@ public class HealthValue : MonoBehaviour
         {
             Die();
         }
+        else // if they are still alive whne shot they follow the player even if the yare outside of their normal range
+        {
+            Transform tempTransform = gameObject.transform.Find("PlayerFinder");
+
+            tempTransform.GetComponent<MeleeBehaviour>().shouldFollowPlayer = true;
+            tempTransform.GetComponent<MeleeBehaviour>().target = Camera.main.transform; 
+        }
     }
 
     // updates the health bar's position

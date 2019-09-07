@@ -2725,7 +2725,7 @@ MonoBehaviour:
   shootingNoise: {fileID: 963194231}
   minimumLightTime: 0.1
   damage: 10
-  range: 10
+  range: 12
 --- !u!114 &963194233
 MonoBehaviour:
   m_ObjectHideFlags: 0

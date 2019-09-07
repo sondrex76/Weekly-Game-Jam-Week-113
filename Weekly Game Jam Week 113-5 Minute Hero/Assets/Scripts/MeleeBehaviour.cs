@@ -8,7 +8,7 @@ public class MeleeBehaviour : MonoBehaviour
     public Transform target;
     NavMeshAgent agent;
 
-    bool playerNearby = false;
+    public bool shouldFollowPlayer = false; // Bool indicating if the bot should follow the player
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +20,7 @@ public class MeleeBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerNearby)
+        if (shouldFollowPlayer)
         {
             agent.isStopped = false; // restarts agent if it were stopped
             agent.SetDestination(target.position);
@@ -34,7 +34,7 @@ public class MeleeBehaviour : MonoBehaviour
         if (other.tag == "MainCamera")
         {
             target = other.transform;
-            playerNearby = true;
+            shouldFollowPlayer = true;
         }
     }
 
@@ -42,7 +42,7 @@ public class MeleeBehaviour : MonoBehaviour
     {
         if (other.tag == "MainCamera")
         {
-            playerNearby = false;
+            shouldFollowPlayer = false;
             agent.isStopped = true; // Stops agent
         }
     }
