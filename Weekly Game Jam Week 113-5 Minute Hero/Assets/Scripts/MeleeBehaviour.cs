@@ -38,6 +38,7 @@ public class MeleeBehaviour : MonoBehaviour
         {
             animationController.SetBool("followingPlayer", true);
             target = other.transform;
+
             shouldFollowPlayer = true;
         }
     }
