@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gun : MonoBehaviour
+public class GunScript : MonoBehaviour
 {
     public Camera cameraObject;
     public Light innerLight;
@@ -12,10 +12,16 @@ public class Gun : MonoBehaviour
 
     public float minimumLightTime = 0.1f;   // Minimum time the flash lasts
     public float damage = 10f;              // Damage per shot
-    public float range = 15;              // Range for weapon
+    public float range = 15;                // Range for weapon
     public float maxPower = 7.0f;           // Maximum power multiplier
     public float timeMax = 5.0f;            // Time it takes to reach max potency
+    public float normLightMult = 1.0f;      // Normal light
+    public float maxLightMult = 5.0f;       // Maximum lighting multiplier
+    public float spotLightDefault = 40f;    // Spotlight default value
+    public float innerLightDefault = 50f;   // Inner light default value
+    public float outerLightDefault = 20f;   // Outer light default value
 
+    float lightMultiplier = 1.0f;           // Multiplier to increase the light strength of shots
     float timeRun = 0;
     float multTime = 0;
 
@@ -59,6 +65,14 @@ public class Gun : MonoBehaviour
     {
         shootingNoise.Play();
         RaycastHit hit;
+
+        // Mult value for light intensity of flash
+        float multFlash = returnLightIntensityMult();
+        Debug.Log(multFlash);
+        innerLight.intensity = multFlash * innerLightDefault;
+        outerLight.intensity = multFlash * outerLightDefault;
+        spotLight.intensity = multFlash * spotLightDefault;
+
         if (Physics.Raycast(cameraObject.transform.position, cameraObject.transform.forward, out hit, range))
         {
             HealthValue enemy = hit.transform.GetComponent<HealthValue>();
@@ -72,4 +86,10 @@ public class Gun : MonoBehaviour
             }
         }
     }
+    // Returns current light intensity
+    public float returnLightIntensityMult()
+    {
+        return (multTime > timeMax) ? maxLightMult : 1 + (maxLightMult - 1) * multTime / timeMax;
+    }
 }
+
