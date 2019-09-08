@@ -4,22 +4,32 @@ using UnityEngine;
 
 public class walkingSound : MonoBehaviour
 {
-    public AudioSource audio;
+    public AudioSource audioWalking;
+    public float minDelay = 0.5f;   // Minimum delay
 
+    float currentDelay;
     Vector3 previousPosition = new Vector3(0, 0, 0);
     
     // plays sound if the character's movement is not approximately 0
     void Update()
     {
-        if (previousPosition != transform.position) // if teh character have moved
-        {
-            audio.mute = false;
+        currentDelay += Time.deltaTime;
 
-            previousPosition = transform.position;  // updates position
-        }
-        else
+        if (currentDelay > minDelay)
         {
-            audio.mute = true;
+            previousPosition = transform.position;  // updates position
+            currentDelay = 0;
+
+            if ((int)(previousPosition.x * 100) != (int)(transform.position.x * 100)
+                && (int)(previousPosition.z * 100) != (int)(transform.position.z * 100)) // if the character have moved
+            {
+                audioWalking.mute = false;
+            }
+            else
+            {
+                audioWalking.mute = true;
+            }
         }
+
     }
 }

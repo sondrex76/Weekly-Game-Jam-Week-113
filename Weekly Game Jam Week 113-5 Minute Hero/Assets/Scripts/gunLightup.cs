@@ -33,7 +33,5 @@ public class gunLightup : MonoBehaviour
 
         currentColor.r = minLightIntensityMultiplier + currentLightIntensity / maxLightIntensity * lightIntensityMultiplier;
         materialRenderer.material.color = currentColor; // Updates color
-
-        Debug.Log(currentColor);
     }
 }
