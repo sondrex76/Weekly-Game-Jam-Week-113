@@ -1420,8 +1420,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bda9da085cfad14fbed2e0dfbf543cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 963194228}
   audioWalking: {fileID: 612855928}
   minDelay: 0.6
+  floatMinStep: 0.2
 --- !u!82 &612855928
 AudioSource:
   m_ObjectHideFlags: 0
