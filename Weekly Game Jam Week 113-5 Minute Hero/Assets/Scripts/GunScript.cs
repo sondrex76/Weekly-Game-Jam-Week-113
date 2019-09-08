@@ -68,7 +68,6 @@ public class GunScript : MonoBehaviour
 
         // Mult value for light intensity of flash
         float multFlash = returnLightIntensityMult();
-        Debug.Log(multFlash);
         innerLight.intensity = multFlash * innerLightDefault;
         outerLight.intensity = multFlash * outerLightDefault;
         spotLight.intensity = multFlash * spotLightDefault;
