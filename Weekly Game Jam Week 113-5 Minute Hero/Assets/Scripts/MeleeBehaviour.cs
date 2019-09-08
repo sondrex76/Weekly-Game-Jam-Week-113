@@ -6,7 +6,8 @@ using UnityEngine.AI;
 public class MeleeBehaviour : MonoBehaviour
 {
     public Transform target;
-    NavMeshAgent agent;
+    Animator animationController;           // Animation controller
+    NavMeshAgent agent;                     // agent
 
     public bool shouldFollowPlayer = false; // Bool indicating if the bot should follow the player
 
@@ -15,6 +16,7 @@ public class MeleeBehaviour : MonoBehaviour
     {
         // agent = GetComponent<NavMeshAgent>();
         agent = transform.parent.GetComponent<NavMeshAgent>(); // This works, however I still can't shoot it while within the area
+        animationController = transform.parent.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -22,6 +24,7 @@ public class MeleeBehaviour : MonoBehaviour
     {
         if (shouldFollowPlayer)
         {
+            animationController.SetBool("followingPlayer", true);
             agent.isStopped = false; // restarts agent if it were stopped
             agent.SetDestination(target.position);
         }
@@ -33,6 +36,7 @@ public class MeleeBehaviour : MonoBehaviour
     {
         if (other.tag == "MainCamera")
         {
+            animationController.SetBool("followingPlayer", true);
             target = other.transform;
             shouldFollowPlayer = true;
         }
@@ -42,6 +46,7 @@ public class MeleeBehaviour : MonoBehaviour
     {
         if (other.tag == "MainCamera")
         {
+            animationController.SetBool("followingPlayer", false);
             shouldFollowPlayer = false;
             agent.isStopped = true; // Stops agent
         }
