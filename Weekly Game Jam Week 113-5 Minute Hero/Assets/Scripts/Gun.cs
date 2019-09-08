@@ -30,9 +30,12 @@ public class Gun : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))   // Shoot and enable light flash
         {
-            allowLights(true);
-            Shoot();
-            multTime = 0;
+            if (!transform.GetComponent<cameraMovement>().isRunning)
+            {
+                allowLights(true);
+                Shoot();
+                multTime = 0;
+            }
         }
         else {                              // Disable light flash
             timeRun += Time.deltaTime;      // Updates value with minimal lighting time for flash

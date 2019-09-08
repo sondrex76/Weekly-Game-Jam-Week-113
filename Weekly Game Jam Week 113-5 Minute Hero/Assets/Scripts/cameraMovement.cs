@@ -13,10 +13,13 @@ public class cameraMovement : MonoBehaviour
     public float horizontalAngularSpeed = 1.5f, verticalAngularSpeed = 1.5f;    // vertical and horizontal rotaiton speeds
     public float minimumVerticalTilt = -60,  maximumVerticalTilt = 90;          // Angular tilt limits
     public float maximumWalkingVelocity = 5.0f, maximumRunningVelocity = 10.0f; // Maximum velocity
+    public float maxZoom = 70.0f, minZoom = 60.0f;                              // Zoom values
     public bool reverseVertical = false;                                        // bool determining if vertical inout should be reversed
+    public float zoomSpeed = 15.0f;                                             // Speed of zooming
+    public bool isRunning;                                                      // Bool indicating if they are running
 
     // private values
-    bool isRunning;
+    float currentZoom;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +27,7 @@ public class cameraMovement : MonoBehaviour
         // Gets elements
         playerModel = GetComponent<Rigidbody>();
         cameraElement = GetComponent<Camera>();
+        currentZoom = minZoom;
     }
 
     // Update is called once per frame
@@ -46,10 +50,35 @@ public class cameraMovement : MonoBehaviour
         
         // Ignores y direction for movement
         cameraElement.transform.rotation = Quaternion.Euler(0, cameraAngleX, 0);
-
-
+        
         // figures out which speed should be used once rather than 
-        float currentSpeed = isRunning ? runningAcceleration : walkingAcceleration;
+        float currentSpeed;
+
+        // sets current speed and zoom
+        if (isRunning)
+        {
+            currentSpeed = runningAcceleration;
+
+            if (currentZoom < maxZoom)
+            {
+                currentZoom += zoomSpeed * Time.deltaTime;
+                if (currentZoom > maxZoom)
+                    currentZoom = maxZoom;
+            }
+        }
+        else
+        {
+            currentSpeed = walkingAcceleration;
+
+            if (currentZoom > minZoom)
+            {
+                currentZoom -= zoomSpeed * Time.deltaTime;
+                if (currentZoom < minZoom)
+                    currentZoom = minZoom;
+            }
+        }
+
+        cameraElement.fieldOfView = currentZoom;    // Updates zoom value
 
         // Gets inputs and updates speed
         if (Input.GetKey(KeyCode.W))                                    // Forwards
