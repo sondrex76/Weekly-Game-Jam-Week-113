@@ -8386,7 +8386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c032976e104d5e4d955401e35d8b745, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightIntensityMultiplier: 5
+  lightIntensityMultiplier: 6
   minLightIntensityMultiplier: 0
 --- !u!1 &7715919832031835551
 GameObject:

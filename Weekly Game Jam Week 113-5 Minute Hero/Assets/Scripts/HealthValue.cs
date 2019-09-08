@@ -14,8 +14,23 @@ public class HealthValue : MonoBehaviour
     public float maxHealth;                 // Max health
     public float healthBarYOffset = 0.0f;   // Health bar Y offset
 
+    Image sliderImage;      // Image
+    Image innerSliderImage; // Inner image
+
+    // Runs at start
+    private void Start()
+    {
+        // Gets the parts of sliderImage
+        sliderImage = gameObject.transform.Find("HealthBar").Find("HealthBarBacking").GetComponent<Image>();
+        innerSliderImage = gameObject.transform.Find("HealthBar").Find("HealthBarBacking").Find("HealthSlider").Find("HealthFillArea").Find("HealthFill").GetComponent<Image>();
+        innerSliderImage.enabled = sliderImage.enabled = false;
+    }
+
     // Updates health
-    public void ChangeHealth(float amount) {
+    public void ChangeHealth(float amount)
+    {
+        innerSliderImage.enabled = sliderImage.enabled = true;
+
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
