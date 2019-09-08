@@ -1470,10 +1470,10 @@ GameObject:
   m_Component:
   - component: {fileID: 100026208853837378}
   - component: {fileID: 8064080577011313464}
-  - component: {fileID: 4907210005929392872}
   - component: {fileID: 4907210005929392875}
   - component: {fileID: 3537317452497414828}
   - component: {fileID: 8546644520212741870}
+  - component: {fileID: 7031226515364722843}
   m_Layer: 0
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -1518,19 +1518,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!135 &4907210005929392872
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3978935315109819473}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.2
-  m_Center: {x: 0, y: 1.2, z: 0}
 --- !u!114 &4907210005929392875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1586,6 +1573,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!136 &7031226515364722843
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3978935315109819473}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.3
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.3, z: 0}
 --- !u!1 &3991228721141334281
 GameObject:
   m_ObjectHideFlags: 0
