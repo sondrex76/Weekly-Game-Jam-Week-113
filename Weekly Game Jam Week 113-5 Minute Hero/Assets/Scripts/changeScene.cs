@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class changeScene : MonoBehaviour
 {
-    public string scene;                // scene name
-
     // changes scene to the specified scene
-    public void ChangeScene() {
+    public void ChangeScene(string scene) {
         SceneManager.LoadScene(scene);  // Loads the provided scene
+    }
+
+    public void quitGame()
+    {
+        Application.Quit();
     }
 }
