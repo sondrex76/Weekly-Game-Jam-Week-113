@@ -24,6 +24,9 @@ public class cameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Hides cursor and locks it to the screen
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         // Gets elements
         playerModel = GetComponent<Rigidbody>();
         cameraElement = GetComponent<Camera>();

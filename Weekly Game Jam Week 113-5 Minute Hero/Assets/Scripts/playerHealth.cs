@@ -40,6 +40,10 @@ public class playerHealth : MonoBehaviour
     // Detah have been reached
     void Die()
     {
+        // Makes mouse visible
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        // Loads scene
         SceneManager.LoadScene("YouDied");  // Changes scene to the death scene
     }
 }
