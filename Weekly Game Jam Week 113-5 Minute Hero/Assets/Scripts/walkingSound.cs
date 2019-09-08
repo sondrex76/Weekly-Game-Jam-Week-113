@@ -13,23 +13,28 @@ public class walkingSound : MonoBehaviour
     // plays sound if the character's movement is not approximately 0
     void Update()
     {
-        currentDelay += Time.deltaTime;
-
-        if (currentDelay > minDelay)
+        if ((previousPosition.x) != (transform.position.x)
+            || (previousPosition.z) != (transform.position.z)) // if the character have moved
         {
-            previousPosition = transform.position;  // updates position
-            currentDelay = 0;
+            currentDelay += Time.deltaTime;
 
-            if ((int)(previousPosition.x * 100) != (int)(transform.position.x * 100)
-                && (int)(previousPosition.z * 100) != (int)(transform.position.z * 100)) // if the character have moved
+            // Checks if enough time have passed
+            if (currentDelay > minDelay)
             {
-                audioWalking.mute = false;
+                previousPosition = transform.position;  // updates position
             }
-            else
+
+            audioWalking.mute = false;
+        }
+        else
+        {
+            if (currentDelay > minDelay)
             {
                 audioWalking.mute = true;
             }
+            currentDelay = 0;
         }
-
+        
+        // Debug.Log(previousPosition); // Remember to remove this!
     }
 }
